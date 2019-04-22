@@ -76,6 +76,7 @@ int main(int argc, string argv[])
                 j = 0;
             }
             key[i] = cipher[j];
+            printf("%d\n", key[i]);
         }
     }
     printf("ciphertext: ");
@@ -92,9 +93,15 @@ int main(int argc, string argv[])
                 char d = (char) cryptograph[i];
                 output[i] = d;
             }
+            else if (ispunct(t[i]))
+            {
+                cryptograph[i] = t[i];
+                char d = (char) cryptograph[i];
+                output[i] = d;
+            }
             else if (isblank(t[i]))
             {
-                cryptograph[i] = ((message[i] + key[i]) % 26) + 32;
+                cryptograph[i] = 32;
                 char d = (char) cryptograph[i];
                 output[i] = d;
             }
@@ -118,9 +125,15 @@ int main(int argc, string argv[])
                 char d = (char) cryptograph[i];
                 output[i] = d;
             }
+            else if (ispunct(t[i]))
+            {
+                cryptograph[i] = t[i];
+                char d = (char) cryptograph[i];
+                output[i] = d;
+            }
             else if (isblank(t[i]))
             {
-                cryptograph[i] = ((message[i] + cipher[i]) % 26) + 32;
+                cryptograph[i] = 32;
                 char d = (char) cryptograph[i];
                 output[i] = d;
             }
