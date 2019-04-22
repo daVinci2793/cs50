@@ -86,23 +86,52 @@ int main(int argc, string argv[])
     {
         for (int i = 0, n = strlen(t); i < n; i++)
         {
-            cryptograph[i] = ((message[i] + key[i]) % 26) + 65;
-            char d = (char) cryptograph[i];
-            output[i] = d;
+            if (isupper(t[i]))
+            {
+                cryptograph[i] = ((message[i] + key[i]) % 26) + 65;
+                char d = (char) cryptograph[i];
+                output[i] = d;
+            }
+            else if (isblank(t[i]))
+            {
+                cryptograph[i] = ((message[i] + key[i]) % 26) + 32;
+                char d = (char) cryptograph[i];
+                output[i] = d;
+            }
+            else
+            {
+                cryptograph[i] = ((message[i] + key[i]) % 26) + 97;
+                char d = (char) cryptograph[i];
+                output[i] = d;
+            }  
             printf("%c", output[i]);
         }
         printf("\n");
     }
-
     else
     {
         for (int i = 0, n = strlen(t); i < n; i++)
         {
-            cryptograph[i] = ((message[i] + cipher[i]) % 26) + 65;
-            char d = (char) cryptograph[i];
-            output[i] = d;
+            if (isupper(t[i]))
+            {
+                cryptograph[i] = ((message[i] + cipher[i]) % 26) + 65;
+                char d = (char) cryptograph[i];
+                output[i] = d;
+            }
+            else if (isblank(t[i]))
+            {
+                cryptograph[i] = ((message[i] + cipher[i]) % 26) + 32;
+                char d = (char) cryptograph[i];
+                output[i] = d;
+            }
+            else
+            {
+                cryptograph[i] = ((message[i] + cipher[i]) % 26) + 97;
+                char d = (char) cryptograph[i];
+                output[i] = d;
+            }  
             printf("%c", output[i]);
         }
-        printf("\n");    
+        printf("\n");
     }
 }
