@@ -1,3 +1,4 @@
+    
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
@@ -37,14 +38,14 @@ int main(int argc, string argv[])
     int key[m];
     for (int i = 0, j = 0; i < m; i ++, j++)    
     {           
+        if (!isalpha(t[i]))
+        {
+            j = (j - 1);
+        } 
         if (j == n || j < 0)
         {
             j = 0;
         }
-        if (!isalpha(t[i]))
-        {
-            j = (j - 1);
-        }  
         b = (int) s[j];
         cipher[j] = (b - 97);
         key[i] = tolower(cipher[j]);
